@@ -1,0 +1,21 @@
+### test between_route
+GET http://127.0.0.1:8080/baidu
+
+### test header_route
+GET http://127.0.0.1:8080
+X-Request-id: 123
+
+### test host_route
+GET http://127.0.0.1:8080
+Host: www.kim.com
+
+### test host_route
+GET http://127.0.0.1:8080
+Host: www.study.com
+
+### test path_route
+GET http://127.0.0.1:8080/red
+
+
+### test weight_route
+GET http://127.0.0.1:8080
