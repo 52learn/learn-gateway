@@ -1,21 +1,109 @@
+# curl -i http://httpbin.org/ip
+GET http://httpbin.org/ip
+
+###
+
 ### test between_route
-GET http://127.0.0.1:8080/baidu
+GET http://127.0.0.1/baidu
 
 ### test header_route
-GET http://127.0.0.1:8080
+GET http://127.0.0.1
 X-Request-id: 123
 
 ### test host_route
-GET http://127.0.0.1:8080
+GET http://127.0.0.1
 Host: www.kim.com
 
 ### test host_route
-GET http://127.0.0.1:8080
+GET http://127.0.0.1
 Host: www.study.com
 
 ### test path_route
-GET http://127.0.0.1:8080/red
+GET http://127.0.0.1/red
 
 
 ### test weight_route
-GET http://127.0.0.1:8080
+GET http://127.0.0.1/weight
+
+### test add request header, add response header, add request parameter
+GET http://127.0.0.1/add-all
+x-output: true
+
+### test mapRequestHeader
+GET http://127.0.0.1/mapRequestHeader
+color: blue
+x-output: true
+host: www.sss.com
+
+### test add prefixPath
+GET http://127.0.0.1/prefixPath
+
+### test preserve host header
+GET http://127.0.0.1/preserveHostHeader
+x-output: true
+host: www.sss.com
+
+### test redirect to absolute url
+GET http://127.0.0.1/redirectToAbsolutePath
+
+### test redirect to relative url
+GET http://127.0.0.1/redirectToRelativePath
+
+### test remove request header, remove response header,remove request parameter
+GET http://127.0.0.1/removeHeaderAndParameter?color=red&age=20
+address: hangzhou
+x-output: true
+
+### test rewrite path
+GET http://127.0.0.1/base/user/getUserInfo
+
+### test rewrite response header
+GET http://127.0.0.1/rewriteResponseHeader
+x-output: true
+
+### test setPath
+GET http://127.0.0.1/user-service/api
+
+### test set header
+GET http://127.0.0.1/setHeader
+request-color:#333300
+x-output:true
+
+### test request size
+POST http://127.0.0.1/requestSize
+Content-Type: application/x-www-form-urlencoded
+
+id=999&value=content
+
+### test request size
+POST http://127.0.0.1/requestSize
+Content-Type: application/json
+
+{
+  "id": 234444
+}
+
+### test setRequestHostHeader
+GET http://127.0.0.1/setRequestHostHeader
+x-output: true
+### test modify-request-body
+POST http://127.0.0.1/modify-request-body
+x-output: true
+modify-request-body
+Content-Type: application/json
+
+{"id": "12345","name": "kim"}
+
+### test modify-response-body
+GET http://127.0.0.1/modify-response-body
+modify-response-body
+x-output
+
+### test add-request-parameter with java dsl , only the highest priority route could be applied
+GET http://127.0.0.1/add-request-parameter
+x-output
+modify-response-body
+add-request-parameter
+modify-request-body
+
+

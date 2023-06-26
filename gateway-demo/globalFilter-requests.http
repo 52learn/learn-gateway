@@ -1,0 +1,9 @@
+### test forward
+GET http://127.0.0.1/
+forward:true
+
+### test ReactiveLoadBalancerClientFilter
+GET http://127.0.0.1/user-service/user/getUserInfo
+
+
+
